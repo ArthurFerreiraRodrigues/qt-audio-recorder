@@ -55,6 +55,7 @@
 
 #include <QAudioProbe>
 #include <QAudioRecorder>
+#include <QMovie>
 #include <QDir>
 #include <QFileDialog>
 #include <QMediaRecorder>
@@ -76,6 +77,14 @@ AudioRecorder::AudioRecorder()
     connect(m_probe, &QAudioProbe::audioBufferProbed,
             this, &AudioRecorder::processBuffer);
     m_probe->setSource(m_audioRecorder);
+
+    //Adicionando GIF a tela inicial
+    QMovie *gif = new QMovie(":/assets/images/robot.gif");
+    ui->gifLabel->setMovie(gif);
+    gif->start();
+
+
+
 
     connect(m_audioRecorder, &QAudioRecorder::durationChanged, this, &AudioRecorder::updateProgress);
     connect(m_audioRecorder, &QAudioRecorder::statusChanged, this, &AudioRecorder::updateStatus);

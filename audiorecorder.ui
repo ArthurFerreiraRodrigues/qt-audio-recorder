@@ -6,71 +6,93 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>548</width>
-    <height>88</height>
+    <width>528</width>
+    <height>528</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QGridLayout" name="gridLayout_3">
-    <item row="0" column="1">
-     <widget class="QPushButton" name="recordButton">
-      <property name="text">
-       <string>Record</string>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="2">
-     <widget class="QPushButton" name="pauseButton">
-      <property name="enabled">
-       <bool>false</bool>
-      </property>
-      <property name="text">
-       <string>Pause</string>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="0">
-     <widget class="QPushButton" name="outputButton">
-      <property name="text">
-       <string>Output...</string>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="0">
-     <widget class="QLabel" name="levelLabel">
-      <property name="text">
-       <string>Audio Level:</string>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="1" colspan="2">
-     <layout class="QVBoxLayout" name="levelsLayout"/>
-    </item>
-   </layout>
+   <widget class="QPushButton" name="outputButton">
+    <property name="geometry">
+     <rect>
+      <x>9</x>
+      <y>363</y>
+      <width>80</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Output...</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pauseButton">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>9</x>
+      <y>394</y>
+      <width>80</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Pause</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="recordButton">
+    <property name="geometry">
+     <rect>
+      <x>220</x>
+      <y>360</y>
+      <width>80</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Record</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="gifLabel">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>528</width>
+      <height>528</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QWidget" name="">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>400</y>
+      <width>431</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="levelsLayout"/>
+   </widget>
+   <zorder>gifLabel</zorder>
+   <zorder>outputButton</zorder>
+   <zorder>pauseButton</zorder>
+   <zorder>recordButton</zorder>
+   <zorder></zorder>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources/>
  <connections>
-  <connection>
-   <sender>outputButton</sender>
-   <signal>clicked()</signal>
-   <receiver>AudioRecorder</receiver>
-   <slot>setOutputLocation()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>46</x>
-     <y>340</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>6</x>
-     <y>302</y>
-    </hint>
-   </hints>
-  </connection>
   <connection>
    <sender>recordButton</sender>
    <signal>clicked()</signal>
@@ -78,8 +100,8 @@
    <slot>toggleRecord()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>191</x>
-     <y>340</y>
+     <x>359</x>
+     <y>33</y>
     </hint>
     <hint type="destinationlabel">
      <x>113</x>
@@ -94,12 +116,28 @@
    <slot>togglePause()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>252</x>
-     <y>334</y>
+     <x>538</x>
+     <y>33</y>
     </hint>
     <hint type="destinationlabel">
      <x>258</x>
      <y>346</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>outputButton</sender>
+   <signal>clicked()</signal>
+   <receiver>AudioRecorder</receiver>
+   <slot>setOutputLocation()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>55</x>
+     <y>33</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>6</x>
+     <y>302</y>
     </hint>
    </hints>
   </connection>
