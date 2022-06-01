@@ -11,38 +11,9 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Robozinho Bacana</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QPushButton" name="outputButton">
-    <property name="geometry">
-     <rect>
-      <x>9</x>
-      <y>363</y>
-      <width>80</width>
-      <height>25</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Output...</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pauseButton">
-    <property name="enabled">
-     <bool>false</bool>
-    </property>
-    <property name="geometry">
-     <rect>
-      <x>9</x>
-      <y>394</y>
-      <width>80</width>
-      <height>25</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Pause</string>
-    </property>
-   </widget>
    <widget class="QPushButton" name="recordButton">
     <property name="geometry">
      <rect>
@@ -72,22 +43,8 @@
      <string/>
     </property>
    </widget>
-   <widget class="QWidget" name="">
-    <property name="geometry">
-     <rect>
-      <x>170</x>
-      <y>400</y>
-      <width>431</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <layout class="QVBoxLayout" name="levelsLayout"/>
-   </widget>
    <zorder>gifLabel</zorder>
-   <zorder>outputButton</zorder>
-   <zorder>pauseButton</zorder>
    <zorder>recordButton</zorder>
-   <zorder></zorder>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
@@ -106,38 +63,6 @@
     <hint type="destinationlabel">
      <x>113</x>
      <y>317</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pauseButton</sender>
-   <signal>clicked()</signal>
-   <receiver>AudioRecorder</receiver>
-   <slot>togglePause()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>538</x>
-     <y>33</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>258</x>
-     <y>346</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>outputButton</sender>
-   <signal>clicked()</signal>
-   <receiver>AudioRecorder</receiver>
-   <slot>setOutputLocation()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>55</x>
-     <y>33</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>6</x>
-     <y>302</y>
     </hint>
    </hints>
   </connection>

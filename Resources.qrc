@@ -1,6 +1,5 @@
 <RCC>
     <qresource prefix="/assets">
-        <file>images/test.jpeg</file>
         <file>images/robot.gif</file>
     </qresource>
 </RCC>
