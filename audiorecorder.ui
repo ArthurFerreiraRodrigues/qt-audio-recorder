@@ -10,6 +10,16 @@
     <height>528</height>
    </rect>
   </property>
+  <property name="font">
+   <font>
+    <family>Ubuntu</family>
+    <pointsize>16</pointsize>
+    <weight>50</weight>
+    <bold>false</bold>
+    <underline>true</underline>
+    <strikeout>false</strikeout>
+   </font>
+  </property>
   <property name="windowTitle">
    <string>Robozinho Bacana</string>
   </property>
@@ -17,14 +27,33 @@
    <widget class="QPushButton" name="recordButton">
     <property name="geometry">
      <rect>
-      <x>220</x>
-      <y>360</y>
-      <width>80</width>
-      <height>25</height>
+      <x>380</x>
+      <y>81</y>
+      <width>81</width>
+      <height>31</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Ubuntu</family>
+      <pointsize>16</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+      <underline>true</underline>
+      <strikeout>false</strikeout>
+     </font>
     </property>
     <property name="text">
      <string>Record</string>
+    </property>
+    <property name="autoDefault">
+     <bool>false</bool>
+    </property>
+    <property name="default">
+     <bool>false</bool>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
     </property>
    </widget>
    <widget class="QLabel" name="gifLabel">
@@ -46,7 +75,18 @@
    <zorder>gifLabel</zorder>
    <zorder>recordButton</zorder>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QStatusBar" name="statusbar">
+   <property name="font">
+    <font>
+     <family>Ubuntu</family>
+     <pointsize>11</pointsize>
+     <weight>50</weight>
+     <bold>false</bold>
+     <underline>false</underline>
+     <strikeout>false</strikeout>
+    </font>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections>

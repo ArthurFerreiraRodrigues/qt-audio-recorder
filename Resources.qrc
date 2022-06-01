@@ -1,5 +1,7 @@
 <RCC>
     <qresource prefix="/assets">
         <file>images/robot.gif</file>
+        <file>images/mic_activated.png</file>
+        <file>images/mic_deactivated.png</file>
     </qresource>
 </RCC>
