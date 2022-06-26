@@ -72,8 +72,25 @@
      <string/>
     </property>
    </widget>
+   <widget class="QPushButton" name="playButton">
+    <property name="geometry">
+     <rect>
+      <x>320</x>
+      <y>400</y>
+      <width>191</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Play last recording</string>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+   </widget>
    <zorder>gifLabel</zorder>
    <zorder>recordButton</zorder>
+   <zorder>playButton</zorder>
   </widget>
   <widget class="QStatusBar" name="statusbar">
    <property name="font">
