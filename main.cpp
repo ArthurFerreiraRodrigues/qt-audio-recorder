@@ -51,10 +51,18 @@
 #include "audiorecorder.h"
 
 #include <QtWidgets>
+#include <QMediaPlayer>
+#include <QUrl>
 
 int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
+
+    QMediaPlayer m_audioPlayer;
+
+    m_audioPlayer.setMedia(QUrl::fromLocalFile("/home/tz/Music/Playback/response_audio.wav"));
+    m_audioPlayer.setVolume(100);
+    m_audioPlayer.play();
 
     AudioRecorder recorder;
 

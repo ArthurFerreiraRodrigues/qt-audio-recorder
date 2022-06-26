@@ -6,10 +6,12 @@ QT += multimedia
 win32:INCLUDEPATH += $$PWD
 
 HEADERS = \
+    audioplayer.h \
     audiorecorder.h \
     audiolevel.h
 
 SOURCES = \
+    audioplayer.cpp \
     main.cpp \
     audiorecorder.cpp \
     audiolevel.cpp
@@ -20,7 +22,7 @@ target.path = $$[QT_INSTALL_EXAMPLES]/multimedia/audiorecorder
 INSTALLS += target
 
 QT+=widgets
-QT+=
+QT+=core
 include(../shared/shared.pri)
 
 DISTFILES += \
