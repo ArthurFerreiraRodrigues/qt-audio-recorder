@@ -5,18 +5,19 @@
 #include <QPushButton>
 #include <QSlider>
 #include <QIODevice>
-#include <QMediaRecorder>
+#include <QMediaPlayer>
 #include <QUrl>
 #include <QAudioDeviceInfo>
+#include <QWidget>
 
 /*
 class AudioPlayer : public QWidget
 {
     Q_OBJECT
 public:
-    AudioPlayer() {}
+    explicit AudioPlayer(QWidget *parent = 0) {}
     virtual ~AudioPlayer() {}
-    void playAudio(const QAudioDeviceInfo &deviceInfo);
+    QMediaPlayer m_audioPlayer;
 
 private slots:
     void togglePlayPause();

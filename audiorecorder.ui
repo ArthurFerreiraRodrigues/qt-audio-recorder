@@ -123,10 +123,27 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>playButton</sender>
+   <signal>clicked()</signal>
+   <receiver>AudioRecorder</receiver>
+   <slot>togglePlayPause()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>415</x>
+     <y>412</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>263</x>
+     <y>263</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>setOutputLocation()</slot>
   <slot>toggleRecord()</slot>
   <slot>togglePause()</slot>
+  <slot>togglePlayPause()</slot>
  </slots>
 </ui>

@@ -13,39 +13,29 @@
 AudioPlayer::AudioPlayer(QWidget *parent)
     : QWidget(parent)
 {
-    m_audioPlayer = new QMediaPlayer;
-    m_audioPlayer->setMedia(QUrl::fromLocalFile("~/Music/Playback/response_audio.wav"));
-    m_audioPlayer->setVolume(50);
-    m_audioPlayer->play();
+    m_audioPlayer.setMedia(QUrl::fromLocalFile("/home/tz/Music/Playback/response_audio.wav"));
+    m_audioPlayer.setVolume(50);
 
-    connect(m_audioPlayer, &AudioPlayer::stateChanged(QSound::isFinished()), this, &AudioPlayer::onStateChanged);
+    //connect(m_audioPlayer, &AudioPlayer::stateChanged(QSound::isFinished()), this, &AudioPlayer::onStateChanged);
 }
 
 AudioPlayer::togglePlayPause()
-{
-
-    namespace fs = std::filesystem;
-    const fs::path dir{"~Music/Playback"};
-
-    if(!fs::is_empty(dir)){
-        QSound::play("~/Music/Playback/response_audio.wav")
+{   
+    if(m_audioPlayer.state() == QMediaPlayer::StoppedState){
+        m_audioPlayer.play();
+    }else{
+        m_audioPlayer.stop();
     }
-
-
 }
 
-void AudioPlayer::onStateChanged(bool finished)
+void AudioPlayer::onStateChanged(QMediaPlayer::State state)
 {
-    if(finished){
-    }
-    case QMediaRecorder::RecordingState:
-        ui->recordButton->setText(tr("Stop"));
+    switch(state){
+    case QMediaPlayer::PlayingState:
+        ui->playButton.setText(tr("Stop"));
         break;
-        ui->recordButton->setText(tr("Stop"));
-
-        break;
-    case QMediaRecorder::StoppedState:
-        ui->recordButton->setText(tr("Record"));
+    case QMediaPlayer::StoppedState:
+        ui->playButton.setText(tr("Play last recording"));
         break;
     }
 }

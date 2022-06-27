@@ -59,6 +59,7 @@
 #include <QDir>
 #include <QFileDialog>
 #include <QMediaRecorder>
+
 #include <QStandardPaths>
 
 AudioRecorder::AudioRecorder()
@@ -67,6 +68,11 @@ AudioRecorder::AudioRecorder()
     ui->setupUi(this);
 
     m_audioRecorder = new QAudioRecorder(this);
+
+
+    // Iniciando objetos de audio
+    m_audioPlayer.setMedia(QUrl::fromLocalFile("/home/tz/Music/Playback/response_audio.wav"));
+    m_audioPlayer.setVolume(50);
 
     //Adicionando GIF a tela inicial
     QMovie *gif = new QMovie(":/assets/images/robot.gif");
@@ -116,12 +122,12 @@ void AudioRecorder::onStateChanged(QMediaRecorder::State state)
     case QMediaRecorder::RecordingState:
         ui->recordButton->setText(tr("Stop"));
         break;
-        ui->recordButton->setText(tr("Stop"));
-
-        break;
     case QMediaRecorder::StoppedState:
         ui->recordButton->setText(tr("Record"));
         break;
+    case QMediaRecorder::PausedState:
+        break;
+
     }
 }
 
@@ -150,7 +156,37 @@ void AudioRecorder::toggleRecord()
     }
 }
 
+
+
 void AudioRecorder::displayErrorMessage()
 {
     ui->statusbar->showMessage(m_audioRecorder->errorString());
+}
+
+// PLAYER
+
+void AudioRecorder::togglePlayPause()
+{
+   if(m_audioPlayer.state() == QMediaPlayer::StoppedState){
+       m_audioPlayer.play();
+
+   }else{
+       m_audioPlayer.stop();
+   }
+   onPlayerStateChanged(m_audioPlayer.state());
+}
+
+void AudioRecorder::onPlayerStateChanged(QMediaPlayer::State state)
+{
+    switch(state){
+    case QMediaPlayer::PlayingState:
+        ui->playButton->setText(tr("Stop"));
+        break;
+    case QMediaPlayer::StoppedState:
+        ui->playButton->setText(tr("Play last recording"));
+        break;
+
+    case QMediaPlayer::PausedState:
+        break;
+    }
 }

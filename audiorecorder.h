@@ -53,6 +53,7 @@
 
 #include <QMainWindow>
 #include <QMediaRecorder>
+#include <QMediaPlayer>
 #include <QUrl>
 
 QT_BEGIN_NAMESPACE
@@ -71,12 +72,17 @@ public:
 
 
 private slots:
+    // Recorder
     void toggleRecord();
-
     void updateStatus(QMediaRecorder::Status);
     void onStateChanged(QMediaRecorder::State);
     void updateProgress(qint64 pos);
     void displayErrorMessage();
+
+    // Player
+    void togglePlayPause();
+    void onPlayerStateChanged(QMediaPlayer::State);
+
 
 private:
     void clearAudioLevels();
@@ -84,7 +90,9 @@ private:
     Ui::AudioRecorder *ui = nullptr;
 
     QAudioRecorder *m_audioRecorder = nullptr;
+    QMediaPlayer m_audioPlayer;
     bool m_outputLocationSet = false;
+
 
 };
 
